@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<double> _fadeAnimation;
   
   String _displayText = '';
-  final String _fullText = 'Developed by Nathaniel Adika';
+  final String _fullText = 'Developed By Nathaniel Adika';
   int _currentIndex = 0;
 
   @override
@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
     
     // Initialize typewriter animation controller
     _typewriterController = AnimationController(
-      duration: Duration(milliseconds: _fullText.length * 300),
+      duration: Duration(milliseconds: _fullText.length * 500),
       vsync: this,
     );
 
@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
     _imageController.forward();
     
     // Start typewriter effect after image animation
-    Future.delayed(const Duration(milliseconds: 4000), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       _startTypewriter();
     });
   }
@@ -138,7 +138,7 @@ class _SplashScreenState extends State<SplashScreen>
                     child: Transform.scale(
                       scale: _scaleAnimation.value,
                       child: Transform.rotate(
-                        angle: _rotationAnimation.value * 0.1, // Subtle rotation
+                        angle: 0, // Remove rotation to keep image straight
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
