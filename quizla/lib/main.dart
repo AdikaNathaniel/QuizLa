@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'get_started.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -85,6 +86,9 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Start animations
     _startAnimations();
+    
+    // Navigate to GetStartedPage after 20 seconds
+    _navigateToGetStarted();
   }
 
   void _startAnimations() {
@@ -111,6 +115,18 @@ class _SplashScreenState extends State<SplashScreen>
     });
     
     _typewriterController.forward();
+  }
+
+  void _navigateToGetStarted() {
+    Future.delayed(const Duration(seconds: 20), () {
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const GetStartedPage(),
+          ),
+        );
+      }
+    });
   }
 
   @override
