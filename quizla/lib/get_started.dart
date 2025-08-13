@@ -10,15 +10,38 @@ class GetStartedPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Top image
-            Image.asset(
-              'assets/TraditionalImagery.jpeg',
+            // Top image with proper aspect ratio and constraints
+            Container(
               width: double.infinity,
-              fit: BoxFit.cover,
-              height: 250,
+              height: 280,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                child: Image.asset(
+                  'assets/TraditionalImagery.jpeg',
+                  width: double.infinity,
+                  height: 280,
+                  fit: BoxFit.cover, // This ensures the image covers the container properly
+                ),
+              ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
 
             // Title
             const Padding(
@@ -29,19 +52,24 @@ class GetStartedPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  height: 1.3,
                 ),
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
 
             // Description
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'We’ve got various categories of quizzes, including mathematics, science, anime, books, music and so much more. Let’s get started now',
+                'We\'ve got various categories of quizzes, including mathematics, science, anime, books, music and so much more. Let\'s get started now',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, height: 1.4),
+                style: TextStyle(
+                  fontSize: 15, 
+                  height: 1.4,
+                  color: Colors.grey,
+                ),
               ),
             ),
 
@@ -59,6 +87,7 @@ class GetStartedPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    elevation: 3,
                   ),
                   onPressed: () {
                     // Navigate to next page
@@ -75,7 +104,7 @@ class GetStartedPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
 
             // Terms and Privacy
             const Padding(
@@ -89,6 +118,7 @@ class GetStartedPage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
+                        color: Colors.orange,
                       ),
                     ),
                     TextSpan(text: ' and '),
@@ -97,6 +127,7 @@ class GetStartedPage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
+                        color: Colors.orange,
                       ),
                     ),
                   ],
@@ -106,7 +137,7 @@ class GetStartedPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
           ],
         ),
       ),
