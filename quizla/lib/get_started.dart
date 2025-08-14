@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'aboutMe.dart'; 
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({Key? key}) : super(key: key);
@@ -90,7 +91,13 @@ class GetStartedPage extends StatelessWidget {
                     elevation: 3,
                   ),
                   onPressed: () {
-                    // Navigate to next page
+                    // Navigate to AboutMePage
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AboutMePage(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'Get Started',
@@ -144,3 +151,25 @@ class GetStartedPage extends StatelessWidget {
     );
   }
 }
+
+// Example AboutMePage - Replace this with your actual AboutMePage implementation
+// class AboutMePage extends StatelessWidget {
+//   const AboutMePage({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('About Me'),
+//         backgroundColor: Colors.orange,
+//         foregroundColor: Colors.white,
+//       ),
+//       body: const Center(
+//         child: Text(
+//           'Welcome to the About Me Page!',
+//           style: TextStyle(fontSize: 18),
+//         ),
+//       ),
+//     );
+//   }
+// }
